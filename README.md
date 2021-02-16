@@ -2,21 +2,22 @@
 
 ## Getting started
 
-#### starting nodejs application [server]
+> **starting nodejs application [server]**
 
 `npm start`
 
 You will see any lint errors in the console if there are any.
 Run the application on port 5000.
 
-#### create indexes for searching.
+> **create indexes for searching**
 
 run in mongoshell [open cmd and run `mongo`, mongoshell will]
-`use youtube`
-`db.videos.createIndex( { title: "text", description: "text" } )`
-know more [here](https://docs.mongodb.com/manual/text-search/).
 
-#### starting reactjs application [client]
+- `use youtube`
+- `db.videos.createIndex( { title: "text", description: "text" } )`
+  know more [here](https://docs.mongodb.com/manual/text-search/).
+
+> **starting reactjs application [client]**
 
 `cd client`
 `npm start`
@@ -27,13 +28,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-## Approach
-
-![alt text](./diagram.png)
-
-- After Each 10s using our nodejs server application make a request to fetch the youtube video data and store in database using [Google APIs Node.js Client Module](https://github.com/googleapis/google-api-nodejs-client). [code -> **search** folder].
-
-**Exposed API end points: -**
+> **Exposed API end points: -**
 
 - GET _[http://localhost:5000/api/youtube/videodata](http://localhost:5000/api/youtube/videodata)_
 
@@ -46,3 +41,9 @@ You will also see any lint errors in the console.
   - returns the stored video data in paginated resposne depending on `q`.
   - `q` and `page` are query paramaters. The q parameter specifies the query term to search for.
   - Open [http://localhost:5000/api/youtube/search?q='official'&page=1](http://localhost:5000/api/youtube/search?q='official'&page=1) to view responses in the browser.
+
+## Approach
+
+After Each 10s using our nodejs server application make a request to fetch the youtube video data and store in database using [Google APIs Node.js Client Module](https://github.com/googleapis/google-api-nodejs-client). [code -> **search** folder].
+
+![alt text](./diagram.png)
