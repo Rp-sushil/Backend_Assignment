@@ -13,10 +13,15 @@ mongoose.connect(
     console.log("connected to MongoDB.....");
   }
 );
+
+var apiKeyIdx = 0;
+
 // start listening..
 app.listen(port, () => {
   console.log(`Server running......${port}`);
   setInterval(() => {
-    search("official", "2018-01-01T00:00:00Z"); // parameter: query string and publishedAfter
+    if (search("official", "2018-01-01T00:00:00Z", apiKeyIdx)) {
+      apiKeyIdx++;
+    } // parameter: query string and publishedAfter
   }, 30000);
 });

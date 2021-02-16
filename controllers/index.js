@@ -1,4 +1,5 @@
 const videoModel = require("../models/index");
+sw = require("stopword");
 
 const videoData = async (req, res) => {
   const resultsPerPage = 5;
@@ -27,7 +28,9 @@ const videoData = async (req, res) => {
 const search = async (req, res) => {
   if (!req.query.q)
     return res.status(400).json({ message: "query string is not defined" });
-  const q = req.query.q;
+  const oldString = req.query.q.split(" ");
+  const newString = sw.removeStopwords(oldString);
+  const q = newString.join(" ");
   const resultsPerPage = 5;
   const page = Math.max(0, req.query.page);
   videoModel

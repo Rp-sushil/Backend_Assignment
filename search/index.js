@@ -3,13 +3,19 @@ const { google } = require("googleapis");
 const videoModel = require("../models/index");
 dotenv.config();
 
+// get the API Key from eviroment variables
+const getAPIkey = (apiKeyIdx) => {
+  const APIkeys = process.env.YOUTUBE_TOKENS.split(" ");
+  return APIkeys[apiKeyIdx];
+};
+
 // reponsible for making API request for YOUTUBE data and saved it to the DATABASE
 
-const search = (query, publishedAfter) => {
-  google
+const search = (query, publishedAfter, apiKeyIdx) => {
+  return google
     .youtube("v3")
     .search.list({
-      key: process.env.YOUTUBE_TOKEN,
+      key: getAPIkey(apiKeyIdx),
       part: "snippet",
       q: `${query}`,
       order: Date,
@@ -39,8 +45,15 @@ const search = (query, publishedAfter) => {
           })
           .catch((err) => console.log(err));
       });
+      return 0;
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      console.log(err);
+      if (err.response.status === 429) {
+        /// tell to use next api key
+        return 1;
+      }
+    });
 };
 
 module.exports = search;
