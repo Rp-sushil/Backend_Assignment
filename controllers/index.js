@@ -6,8 +6,14 @@ const videoData = async (req, res) => {
   //   const query = req.query.search;
   videoModel
     .find()
-    .select({ title: 1, description: 1, publishedAt: 1, _id: 0 })
-    .sort({ publishedAt: "desc" })
+    .select({
+      title: 1,
+      description: 1,
+      publishedAt: 1,
+      thumbnailUrl: 1,
+      _id: 0,
+    })
+    .sort({ publishedAt: "asc" })
     .limit(resultsPerPage)
     .skip(resultsPerPage * page)
     .then((results) => {
@@ -26,8 +32,15 @@ const search = async (req, res) => {
   const page = Math.max(0, req.query.page);
   videoModel
     .find({ $text: { $search: `${q}` } }, { score: { $meta: "textScore" } })
-    .sort({ score: { $meta: "textScore" }, publishedAt: "desc" })
-    .select({ title: 1, description: 1, publishedAt: 1, score: 1, _id: 0 })
+    .sort({ score: { $meta: "textScore" } })
+    .select({
+      title: 1,
+      description: 1,
+      publishedAt: 1,
+      thumbnailUrl: 1,
+      score: 1,
+      _id: 0,
+    })
     .limit(resultsPerPage)
     .skip(resultsPerPage * page)
     .then((results) => {

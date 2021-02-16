@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  background-color: rgb(20, 18, 18);
+}
+
+.App {
+  text-align: center;
+}
+h1 {
+  color: white;
+}
+
+.search {
+  margin-top: 1%;
+  margin-right: 40%;
+  margin-left: 40%;
+  margin-bottom: 2%;
+  align-self: center;
+}
+a {
+  color: red;
+}
+.item {
+  display: flex;
+  border: rgb(18, 26, 26) solid 5px;
+  border-radius: 1%;
+}
+
+.video-info {
+  margin-left: 20%;
+  height: 100px;
+  width: 800px;
+  padding: 1px;
+}
+img {
+  border: rgb(48, 12, 6) solid 2px;
+}
+p {
+  color: rgb(238, 213, 168);
+  font-style: oblique;
+}
+button {
+  color: white;
+  background-color: black;
+  margin: 2px;
+}
+button:hover {
+  cursor: pointer;
+}
+.loading {
+  color: white;
+}
+h1:hover {
+  cursor: pointer;
+}
