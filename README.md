@@ -14,7 +14,7 @@
 You will see any lint errors in the console if there are any.
 Run the application on port 5000.
 
-#### Create indexes for searching
+### Create indexes for searching
 
 run in mongoshell [open cmd and run `mongo`, mongoshell will open]
 
