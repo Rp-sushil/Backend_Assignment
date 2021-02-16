@@ -2,7 +2,7 @@
 
 ## Getting started
 
-#### **starting nodejs application [server]**
+### **starting nodejs application [server]**
 
 `npm start`
 
@@ -17,7 +17,7 @@ run in mongoshell [open cmd and run `mongo`, mongoshell will open]
 - `db.videos.createIndex( { title: "text", description: "text" } )`
   know more [here](https://docs.mongodb.com/manual/text-search/).
 
-#### **starting reactjs application [client]**
+### **starting reactjs application [client]**
 
 `cd client`
 `npm start`
@@ -28,7 +28,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-#### **Exposed API end points: -**
+### **Exposed API end points: -**
 
 - > GET _[http://localhost:5000/api/youtube/videodata](http://localhost:5000/api/youtube/videodata)_
 
