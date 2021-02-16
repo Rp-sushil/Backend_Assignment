@@ -2,22 +2,22 @@
 
 ## Getting started
 
-> **starting nodejs application [server]**
+#### **starting nodejs application [server]**
 
 `npm start`
 
 You will see any lint errors in the console if there are any.
 Run the application on port 5000.
 
-> **create indexes for searching**
+#### **create indexes for searching**
 
-run in mongoshell [open cmd and run `mongo`, mongoshell will]
+run in mongoshell [open cmd and run `mongo`, mongoshell will open]
 
 - `use youtube`
 - `db.videos.createIndex( { title: "text", description: "text" } )`
   know more [here](https://docs.mongodb.com/manual/text-search/).
 
-> **starting reactjs application [client]**
+#### **starting reactjs application [client]**
 
 `cd client`
 `npm start`
@@ -28,15 +28,15 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-> **Exposed API end points: -**
+#### **Exposed API end points: -**
 
-- GET _[http://localhost:5000/api/youtube/videodata](http://localhost:5000/api/youtube/videodata)_
+- > GET _[http://localhost:5000/api/youtube/videodata](http://localhost:5000/api/youtube/videodata)_
 
   - returns the stored video data in a paginated response sorted in descending order of published datetime.
   - `page` query parameter, it could take values `1, 2, 3, ...`.
   - Open [http://localhost:5000/api/youtube/videodata?page=1](http://localhost:5000/api/youtube/videodata?page=1) to view responses in the browser.
 
-- GET _[http://localhost:5000/api/youtube/search](http://localhost:5000/api/youtube/search)_
+- > GET _[http://localhost:5000/api/youtube/search](http://localhost:5000/api/youtube/search)_
   - A basic search API to search the stored videos using their title and description.
   - returns the stored video data in paginated resposne depending on `q`.
   - `q` and `page` are query paramaters. The q parameter specifies the query term to search for.
