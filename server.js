@@ -23,5 +23,5 @@ app.listen(port, () => {
     if (search("official", "2018-01-01T00:00:00Z", apiKeyIdx)) {
       apiKeyIdx++;
     } // parameter: query string, publishedAfter, apiKeyIdx -> which api key should be used
-  }, 30000);
+  }, 10000);
 });
